@@ -37,6 +37,7 @@ defmodule Weather.MixProject do
       {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:ecto_sql, "~> 3.4"},
       {:gettext, "~> 0.11"},
+      {:httpoison, "~> 1.6"},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.5.1"},
       {:phoenix_ecto, "~> 4.1"},
