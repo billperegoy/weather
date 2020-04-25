@@ -20,6 +20,7 @@ defmodule WeatherWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: WeatherWeb
+      import Phoenix.LiveView.Controller
 
       import Plug.Conn
       import WeatherWeb.Gettext
@@ -32,6 +33,8 @@ defmodule WeatherWeb do
       use Phoenix.View,
         root: "lib/weather_web/templates",
         namespace: WeatherWeb
+
+      import Phoenix.LiveView.Helpers
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -47,6 +50,7 @@ defmodule WeatherWeb do
 
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
