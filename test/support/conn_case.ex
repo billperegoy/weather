@@ -16,6 +16,7 @@ defmodule WeatherWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL
 
   using do
     quote do
@@ -32,10 +33,10 @@ defmodule WeatherWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Weather.Repo)
+    :ok = SQL.Sandbox.checkout(Weather.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Weather.Repo, {:shared, self()})
+      SQL.Sandbox.mode(Weather.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

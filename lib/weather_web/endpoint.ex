@@ -51,4 +51,8 @@ defmodule WeatherWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug WeatherWeb.Router
+
+  if Application.get_env(:weather, :sql_sandbox) do
+    plug Phoenix.Ecto.SQL.Sandbox
+  end
 end

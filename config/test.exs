@@ -16,7 +16,9 @@ config :weather, Weather.Repo,
 # you can enable the server option below.
 config :weather, WeatherWeb.Endpoint,
   http: [port: 4002],
-  server: false
+  server: true
+
+config :weather, :sql_sandbox, true
 
 # Print only warnings and errors during test
 config :logger, level: :warn

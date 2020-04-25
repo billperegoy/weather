@@ -15,6 +15,7 @@ defmodule Weather.DataCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL
 
   using do
     quote do
@@ -31,7 +32,7 @@ defmodule Weather.DataCase do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Weather.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Weather.Repo, {:shared, self()})
+      SQL.Sandbox.mode(Weather.Repo, {:shared, self()})
     end
 
     :ok
